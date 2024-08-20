@@ -1,0 +1,24 @@
+.firstbox{
+    font-weight: bolder;
+    text-align: center;
+    background-color:aquamarine;
+    padding: 20px;
+    border: 10px solid black;
+    width: 20%;
+}
+.secondbox{
+    background-color: yellow;
+    margin-left: 347px;
+    width: 347px;
+    height: 171px;
+    border: 10px solid black;
+    
+   
+}
+.thirdbox{
+    background-color: red;
+    border: 10px solid black;
+    width: 327px;
+    height: 171px;
+    
+}
