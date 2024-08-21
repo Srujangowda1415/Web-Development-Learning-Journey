@@ -13,11 +13,29 @@ body {
 }
 
 h1 {
-  font-size: 5rem;
+  font-size: 3rem;
+  
 }
+
 
 footer {
   text-align: right;
   color: midnightblue;
 }
-
+.logo{
+  width: 20%;
+}
+.right-card{
+  float: right;
+  width: 50%;
+}
+.left-card{
+  float: left;
+  width: 50%;
+}
+@media (max-width:600px){
+  body{
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+}
