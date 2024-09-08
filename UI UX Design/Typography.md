@@ -6,3 +6,4 @@ so yeah fonts do matter a lot
 [text](assets/IMG_3672.HEIC)
 [text](assets/IMG_3673.HEIC)
 [text](assets/IMG_3674.HEIC)
+we tried adding a few images but it is not supported
