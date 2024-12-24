@@ -10,7 +10,11 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "body-parser": "^1.20.3",
+    "dog-names": "^3.0.0",
     "inquirer": "^10.2.2",
-    "qr-image": "^3.2.0"
+    "morgan": "^1.10.0",
+    "qr-image": "^3.2.0",
+    "superheroes": "^4.0.0"
   }
 }
