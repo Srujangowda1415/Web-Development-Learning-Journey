@@ -1,0 +1,33 @@
+/* General styles */
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Jost', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+  }
+  
+  /* Heading styles */
+  h1 {
+    font-size: 3rem;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+  }
+  #greetingMessage {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #28a745; /* Green text for the greeting */
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0; /* Start fully transparent */
+    }
+    to {
+      opacity: 1; /* End fully visible */
+    }
+  }

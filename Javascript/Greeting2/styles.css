@@ -1,0 +1,83 @@
+/* General styles */
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Jost', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+  }
+  
+  /* Container styles */
+  .container {
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  /* Heading styles */
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+  
+  /* Input field styles */
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #444;
+    border-radius: 5px;
+    background-color: #222;
+    color: white;
+    font-family: 'Jost', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+  }
+  
+  input:focus {
+    border-color: #007bff;
+  }
+  
+  /* Button styles */
+  button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Jost', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Greeting message styles */
+  #greetingMessage {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #28a745; /* Green text for the greeting */
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+    opacity: 0; /* Start fully transparent */
+    animation: fadeIn 1s ease-in-out forwards; /* Apply the animation */
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }

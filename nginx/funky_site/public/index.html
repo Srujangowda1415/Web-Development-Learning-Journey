@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Funky Fun Page</title>
+    <style>
+      body {
+        background: linear-gradient(45deg, #ff00ff, #00ffff);
+        text-align: center;
+        font-family: "Comic Sans MS", cursive;
+        color: white;
+        padding: 50px;
+        animation: backgroundAnim 5s infinite alternate;
+      }
+      @keyframes backgroundAnim {
+        0% {
+          background: #ff00ff;
+        }
+        100% {
+          background: #00ffff;
+        }
+      }
+      h1 {
+        font-size: 3em;
+        text-shadow: 3px 3px 0px black;
+      }
+      button {
+        background: yellow;
+        color: black;
+        font-size: 1.5em;
+        padding: 15px;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+      button:hover {
+        transform: scale(1.2);
+      }
+      #joke {
+        font-size: 1.8em;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>😂 Welcome to the Funky Fun Page! 😂</h1>
+    <button onclick="tellJoke()">Get a Random Joke</button>
+    <p id="joke">Click the button to laugh! 😆</p>
+
+    <script>
+      const jokes = [
+        "Why don’t skeletons fight each other? They don’t have the guts!",
+        "I told my wife she was drawing her eyebrows too high. She looked surprised!",
+        "Parallel lines have so much in common. It’s a shame they’ll never meet!",
+        "Why did the math book look sad? Because it had too many problems!",
+        "I would tell you a construction joke… but I’m still working on it!",
+      ];
+
+      function tellJoke() {
+        const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+        document.getElementById("joke").innerText = randomJoke;
+      }
+    </script>
+  </body>
+</html>

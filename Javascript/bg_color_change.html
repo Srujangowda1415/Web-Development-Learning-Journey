@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background color change</title>
+  </head>
+  <style>
+    button:hover {
+      transform: scale(1.2);
+    }
+  </style>
+  <body
+    id="body"
+    style="
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      margin: 0;
+    "
+  >
+    <h1 style="background-color: black; color: white">Hello</h1>
+    <h1 style="background-color: black; color: white">
+      Yaha background colour change hoga
+    </h1>
+    <button
+      onclick="change()"
+      style="
+        cursor: pointer;
+        background-color: black;
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+      "
+    >
+      Yaha click kar
+    </button>
+  </body>
+
+  <script>
+    const bgcolor = document.querySelector("#body");
+
+    function change() {
+      let a = Math.floor(Math.random() * 256);
+      let b = Math.floor(Math.random() * 256);
+      let c = Math.floor(Math.random() * 256);
+      bgcolor.style.backgroundColor = `rgb(${a}, ${b}, ${c})`;
+    }
+  </script>
+</html>

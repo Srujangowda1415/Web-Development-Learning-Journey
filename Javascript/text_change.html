@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Change</title>
+  </head>
+  <style>
+    button:hover {
+      transform: scale(1.2);
+    }
+  </style>
+  <body
+    style="
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      margin: 0;
+    "
+  >
+    <h1 style="background-color: black; color: white">Hello</h1>
+    <h1 style="background-color: black; color: white">
+      Ye text change kar do please
+    </h1>
+    <button
+      style="
+        background-color: black;
+        color: white;
+        cursor: pointer;
+        padding: 20px;
+        border-radius: 10px;
+      "
+      onclick="change()"
+    >
+      Yaha se change hoga
+    </button>
+  </body>
+</html>
+<script>
+  function change() {
+    document.getElementsByTagName("h1")[1].innerText = Math.floor(
+      Math.random() * 10000
+    );
+  }
+</script>

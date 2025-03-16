@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quotes</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="quote-container">
+      <p class="quote"></p>
+      <p class="author"></p>
+    </div>
+  </body>
+  <script>
+    const list = {
+      quotes: [
+        {
+          author: "Steve Jobs",
+          quote: "The only way to do great work is to love what you do.",
+        },
+        {
+          author: "Theodore Roosevelt",
+          quote: "Believe you can and you're halfway there.",
+        },
+        {
+          author: "Winston Churchill",
+          quote:
+            "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+        },
+        {
+          author: "Steve Jobs",
+          quote:
+            "Your time is limited, don't waste it living someone else's life.",
+        },
+        {
+          author: "Peter Drucker",
+          quote: "The best way to predict the future is to create it.",
+        },
+        {
+          author: "Theodore Roosevelt",
+          quote: "Do what you can, with what you have, where you are.",
+        },
+        {
+          author: "Franklin D. Roosevelt",
+          quote:
+            "The only limit to our realization of tomorrow is our doubts of today.",
+        },
+        {
+          author: "Nelson Mandela",
+          quote: "It always seems impossible until it’s done.",
+        },
+        {
+          author: "William James",
+          quote: "Act as if what you do makes a difference. It does.",
+        },
+        {
+          author: "C.S. Lewis",
+          quote:
+            "You are never too old to set another goal or to dream a new dream.",
+        },
+        {
+          author: "Eleanor Roosevelt",
+          quote:
+            "The future belongs to those who believe in the beauty of their dreams.",
+        },
+        {
+          author: "Sam Levenson",
+          quote: "Don’t watch the clock; do what it does. Keep going.",
+        },
+        {
+          author: "Ralph Waldo Emerson",
+          quote:
+            "The only person you are destined to become is the person you decide to be.",
+        },
+        {
+          author: "Arthur Ashe",
+          quote: "Start where you are. Use what you have. Do what you can.",
+        },
+        {
+          author: "Dalai Lama",
+          quote:
+            "Happiness is not something ready-made. It comes from your own actions.",
+        },
+        {
+          author: "Frank Sinatra",
+          quote: "The best revenge is massive success.",
+        },
+        {
+          author: "Wayne Gretzky",
+          quote: "You miss 100% of the shots you don’t take.",
+        },
+        { author: "Norman Vaughan", quote: "Dream big and dare to fail." },
+        {
+          author: "Samuel Goldwyn",
+          quote: "The harder I work, the luckier I get.",
+        },
+        {
+          author: "Winston Churchill",
+          quote:
+            "Success is walking from failure to failure with no loss of enthusiasm.",
+        },
+        {
+          author: "Buddha",
+          quote: "The mind is everything. What you think you become.",
+        },
+        {
+          author: "Mahatma Gandhi",
+          quote: "You must be the change you wish to see in the world.",
+        },
+        {
+          author: "Zig Ziglar",
+          quote:
+            "What you get by achieving your goals is not as important as what you become by achieving your goals.",
+        },
+        {
+          author: "Chinese Proverb",
+          quote:
+            "The best time to plant a tree was 20 years ago. The second best time is now.",
+        },
+        {
+          author: "Roy T. Bennett",
+          quote:
+            "Don’t be pushed around by the fears in your mind. Be led by the dreams in your heart.",
+        },
+        {
+          author: "Charles R. Swindoll",
+          quote: "Life is 10% what happens to us and 90% how we react to it.",
+        },
+        {
+          author: "Martin Luther King Jr.",
+          quote:
+            "In the end, we will remember not the words of our enemies, but the silence of our friends.",
+        },
+        {
+          author: "Dalai Lama",
+          quote: "The purpose of our lives is to be happy.",
+        },
+        {
+          author: "John Lennon",
+          quote: "Life is what happens when you’re busy making other plans.",
+        },
+        {
+          author: "Mae West",
+          quote: "You only live once, but if you do it right, once is enough.",
+        },
+        {
+          author: "Socrates",
+          quote: "The unexamined life is not worth living.",
+        },
+        { author: "Oprah Winfrey", quote: "Turn your wounds into wisdom." },
+        {
+          author: "Mark Twain",
+          quote:
+            "The two most important days in your life are the day you are born and the day you find out why.",
+        },
+        {
+          author: "Confucius",
+          quote:
+            "Life is really simple, but we insist on making it complicated.",
+        },
+        {
+          author: "Lao Tzu",
+          quote: "The journey of a thousand miles begins with one step.",
+        },
+        {
+          author: "Helen Keller",
+          quote: "Life is either a daring adventure or nothing at all.",
+        },
+        {
+          author: "Socrates",
+          quote: "The only true wisdom is in knowing you know nothing.",
+        },
+        {
+          author: "Mahatma Gandhi",
+          quote:
+            "Live as if you were to die tomorrow. Learn as if you were to live forever.",
+        },
+        {
+          author: "Eckhart Tolle",
+          quote: "The art of life is to live in the present moment.",
+        },
+        {
+          author: "Sarah Louise Delany",
+          quote: "Life is short, and it’s up to you to make it sweet.",
+        },
+        {
+          author: "Helen Keller",
+          quote:
+            "The best and most beautiful things in the world cannot be seen or even touched – they must be felt with the heart.",
+        },
+        {
+          author: "Ralph Waldo Emerson",
+          quote:
+            "Life is a succession of lessons which must be lived to be understood.",
+        },
+        {
+          author: "Bertrand Russell",
+          quote:
+            "The good life is one inspired by love and guided by knowledge.",
+        },
+        {
+          author: "Albert Einstein",
+          quote:
+            "Life is like riding a bicycle. To keep your balance, you must keep moving.",
+        },
+        {
+          author: "Pablo Picasso",
+          quote:
+            "The meaning of life is to find your gift. The purpose of life is to give it away.",
+        },
+        {
+          author: "Lao Tzu",
+          quote:
+            "Life is a series of natural and spontaneous changes. Don’t resist them; that only creates sorrow.",
+        },
+        {
+          author: "Nelson Mandela",
+          quote:
+            "The greatest glory in living lies not in never falling, but in rising every time we fall.",
+        },
+        {
+          author: "Ernest Holmes",
+          quote:
+            "Life is a mirror and will reflect back to the thinker what he thinks into it.",
+        },
+        {
+          author: "Paulo Coelho",
+          quote:
+            "The secret of life, though, is to fall seven times and to get up eight times.",
+        },
+        {
+          author: "Søren Kierkegaard",
+          quote:
+            "Life is not a problem to be solved, but a reality to be experienced.",
+        },
+        {
+          author: "Vidal Sassoon",
+          quote:
+            "The only place where success comes before work is in the dictionary.",
+        },
+        {
+          author: "Will Rogers",
+          quote: "Don’t let yesterday take up too much of today.",
+        },
+        {
+          author: "Walt Disney",
+          quote: "The way to get started is to quit talking and begin doing.",
+        },
+        {
+          author: "Chris Grosser",
+          quote: "Opportunities don’t happen. You create them.",
+        },
+        {
+          author: "Franklin D. Roosevelt",
+          quote:
+            "The only limit to our realization of tomorrow is our doubts of today.",
+        },
+        { author: "Norman Vaughan", quote: "Dream big and dare to fail." },
+        {
+          author: "Chinese Proverb",
+          quote:
+            "The best time to plant a tree was 20 years ago. The second best time is now.",
+        },
+        {
+          author: "Mahatma Gandhi",
+          quote: "The future depends on what you do today.",
+        },
+        {
+          author: "Charles Kingsleigh",
+          quote:
+            "The only way to achieve the impossible is to believe it is possible.",
+        },
+        {
+          author: "C.S. Lewis",
+          quote:
+            "You are never too old to set another goal or to dream a new dream.",
+        },
+        {
+          author: "Unknown",
+          quote:
+            "The harder you work for something, the greater you’ll feel when you achieve it.",
+        },
+        {
+          author: "Mark Twain",
+          quote: "The secret of getting ahead is getting started.",
+        },
+        {
+          author: "Ralph Waldo Emerson",
+          quote:
+            "The only person you are destined to become is the person you decide to be.",
+        },
+        {
+          author: "Frank Sinatra",
+          quote: "The best revenge is massive success.",
+        },
+        {
+          author: "Jordan Belfort",
+          quote:
+            "The only thing standing between you and your goal is the story you keep telling yourself as to why you can’t achieve it.",
+        },
+        {
+          author: "Franklin D. Roosevelt",
+          quote:
+            "The only limit to our realization of tomorrow is our doubts of today.",
+        },
+        {
+          author: "Steve Jobs",
+          quote: "The only way to do great work is to love what you do.",
+        },
+        {
+          author: "Franklin D. Roosevelt",
+          quote: "The only thing we have to fear is fear itself.",
+        },
+        {
+          author: "Socrates",
+          quote: "The only true wisdom is in knowing you know nothing.",
+        },
+        {
+          author: "Edmund Burke",
+          quote:
+            "The only thing necessary for the triumph of evil is for good men to do nothing.",
+        },
+        {
+          author: "Albert Einstein",
+          quote:
+            "The only thing that interferes with my learning is my education.",
+        },
+        {
+          author: "Helen Keller",
+          quote:
+            "The only thing worse than being blind is having sight but no vision.",
+        },
+        {
+          author: "J.R.R. Tolkien",
+          quote:
+            "The only thing we have to decide is what to do with the time that is given us.",
+        },
+        {
+          author: "Jordan Belfort",
+          quote:
+            "The only thing standing between you and your goal is the story you keep telling yourself as to why you can’t achieve it.",
+        },
+        {
+          author: "Charles Kingsleigh",
+          quote:
+            "The only way to achieve the impossible is to believe it is possible.",
+        },
+        {
+          author: "Unknown",
+          quote: "I’m not lazy, I’m just on energy-saving mode.",
+        },
+        {
+          author: "Unknown",
+          quote: "I’m not arguing, I’m just explaining why I’m right.",
+        },
+        {
+          author: "Unknown",
+          quote:
+            "I’m not procrastinating, I’m just prioritizing my tasks in order of importance.",
+        },
+        {
+          author: "Unknown",
+          quote: "I’m not short, I’m concentrated awesome.",
+        },
+        { author: "Unknown", quote: "I’m not weird, I’m limited edition." },
+        {
+          author: "Unknown",
+          quote:
+            "I’m not arguing, I’m just passionately expressing my point of view.",
+        },
+        {
+          author: "Unknown",
+          quote: "I’m not lazy, I’m just highly motivated to do nothing.",
+        },
+        {
+          author: "Unknown",
+          quote:
+            "I’m not shy, I’m just holding back my awesomeness so I don’t intimidate you.",
+        },
+        {
+          author: "Unknown",
+          quote: "I’m not clumsy, I’m just on a mission to test gravity.",
+        },
+        {
+          author: "Unknown",
+          quote: "I’m not late, I’m just fashionably delayed.",
+        },
+        {
+          author: "Unknown",
+          quote: "I’m not arguing, I’m just explaining why I’m right.",
+        },
+        {
+          author: "Unknown",
+          quote: "I’m not lazy, I’m just on energy-saving mode.",
+        },
+        { author: "Unknown", quote: "I’m not weird, I’m limited edition." },
+        {
+          author: "Unknown",
+          quote: "I’m not short, I’m concentrated awesome.",
+        },
+        {
+          author: "Unknown",
+          quote:
+            "I’m not arguing, I’m just passionately expressing my point of view.",
+        },
+        {
+          author: "Unknown",
+          quote: "I’m not lazy, I’m just highly motivated to do nothing.",
+        },
+        {
+          author: "Unknown",
+          quote:
+            "I’m not shy, I’m just holding back my awesomeness so I don’t intimidate you.",
+        },
+        {
+          author: "Unknown",
+          quote: "I’m not clumsy, I’m just on a mission to test gravity.",
+        },
+        {
+          author: "Unknown",
+          quote: "I’m not late, I’m just fashionably delayed.",
+        },
+        {
+          author: "Unknown",
+          quote: "I’m not arguing, I’m just explaining why I’m right.",
+        },
+        {
+          author: "Unknown",
+          quote: "I’m not lazy, I’m just on energy-saving mode.",
+        },
+        { author: "Unknown", quote: "I’m not weird, I’m limited edition." },
+        {
+          author: "Unknown",
+          quote: "I’m not short, I’m concentrated awesome.",
+        },
+        {
+          author: "Unknown",
+          quote:
+            "I’m not arguing, I’m just passionately expressing my point of view.",
+        },
+        {
+          author: "Unknown",
+          quote: "I’m not lazy, I’m just highly motivated to do nothing.",
+        },
+      ],
+    };
+    let quote = document.getElementsByClassName("quote")[0];
+    let author = document.getElementsByClassName("author")[0];
+    let quotenumber = Math.floor(Math.random() * 101);
+    quote.innerText = list.quotes[quotenumber].quote;
+    author.innerText = list.quotes[quotenumber].author;
+  </script>
+</html>

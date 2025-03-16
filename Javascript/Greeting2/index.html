@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Greeting App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Hello User!</h1>
+      <form id="nameform">
+        <input id="nameinput" type="text" placeholder="Enter your name" />
+        <button type="submit">Submit</button>
+      </form>
+      <p id="greetingMessage"></p>
+    </div>
+
+    <script>
+      document
+        .getElementById("nameform")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const name = document.getElementById("nameinput").value;
+          let url = `page2.html?name=${encodeURIComponent(name)}`;
+          window.location.href = url;
+        });
+    </script>
+  </body>
+</html>
