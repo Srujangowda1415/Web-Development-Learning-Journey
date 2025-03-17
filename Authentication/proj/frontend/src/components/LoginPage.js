@@ -1,16 +1,39 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
+
+const GOOGLE_CLIENT_ID = "1095775181628-t9lp2ruuhmc24pd00op0rp5jstqoelvg.apps.googleusercontent.com"; // Replace with your actual Client ID
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+  const [loading, setLoading] = useState(false); // Loading state for Google OAuth
+  const location = useLocation();
+  const navigate = useNavigate();
 
+  // Handle query parameters for Google OAuth redirection
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const token = queryParams.get("token");
+    const email = queryParams.get("email");
+
+    if (token && email) {
+      console.log("User logged in:", email); // Log user email
+      alert(`Google Login Successful! Welcome, ${email}`);
+      localStorage.setItem("token", token);
+      window.history.replaceState({}, document.title, "/dashboard"); // Clean URL
+      navigate("/dashboard"); // Redirect to dashboard
+    }
+  }, [location, navigate]);
+
+  // Handle email/password form input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // Handle email/password form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -23,68 +46,80 @@ const LoginPage = () => {
       const data = await response.json();
       if (response.ok) {
         alert("Login successful!");
-        // Store token in localStorage/sessionStorage (for JWT)
         localStorage.setItem("token", data.token);
+        navigate("/dashboard"); // Redirect to dashboard
       } else {
-        alert(data.message);
+        alert(data.error || "Login failed. Please try again.");
       }
     } catch (error) {
       console.error("Error logging in:", error);
+      alert("An error occurred. Please try again.");
     }
   };
 
-  const handleGoogleSignIn = async () => {
-    try {
-      // Replace with your Google OAuth logic
-      alert("Google Sign-In is not implemented yet.");
-    } catch (error) {
-      console.error("Error with Google Sign-In:", error);
-    }
+  // Handle Google OAuth success
+  const handleGoogleSuccess = () => {
+    setLoading(true); // Show loading state
+    window.location.href = "http://localhost:5005/auth/google"; // Redirect to backend
+  };
+
+  // Handle Google OAuth failure
+  const handleGoogleFailure = () => {
+    alert("Google Sign-In Failed");
+    setLoading(false); // Reset loading state
   };
 
   return (
-    <div style={styles.container}>
-      <h2 style={styles.heading}>Login</h2>
-      <form onSubmit={handleSubmit} style={styles.form}>
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-          style={styles.input}
+    <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
+      <div style={styles.container}>
+        <h2 style={styles.heading}>Login</h2>
+        <form onSubmit={handleSubmit} style={styles.form}>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            style={styles.input}
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+            style={styles.input}
+          />
+          <button type="submit" style={styles.button}>
+            Login
+          </button>
+        </form>
+
+        <p style={styles.divider}>or</p>
+
+        {/* Google Login Button */}
+        <GoogleLogin
+          onSuccess={handleGoogleSuccess}
+          onError={handleGoogleFailure}
         />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-          style={styles.input}
-        />
-        <button type="submit" style={styles.button}>
-          Login
-        </button>
-      </form>
 
-      <p style={styles.divider}>or</p>
+        {/* Loading state for Google OAuth */}
+        {loading && <p style={styles.loading}>Redirecting to Google...</p>}
 
-      <button onClick={handleGoogleSignIn} style={styles.googleButton}>
-        Sign in with Google
-      </button>
-
-      <div style={styles.links}>
-        <Link to="/signup" style={styles.link}>
-          Sign Up
-        </Link>
-        <span style={styles.linkSeparator}>|</span>
-        <Link to="/forgot-password" style={styles.link}>
-          Forgot Password?
-        </Link>
+        {/* Navigation Links */}
+        <div style={styles.links}>
+          <Link to="/signup" style={styles.link}>
+            Sign Up
+          </Link>
+          <span style={styles.linkSeparator}>|</span>
+          <Link to="/forgot-password" style={styles.link}>
+            Forgot Password?
+          </Link>
+        </div>
       </div>
-    </div>
+    </GoogleOAuthProvider>
   );
 };
 
@@ -135,20 +170,6 @@ const styles = {
     cursor: "pointer",
     transition: "background-color 0.3s ease",
   },
-  googleButton: {
-    width: "100%",
-    maxWidth: "400px",
-    padding: "12px",
-    backgroundColor: "#db4437",
-    color: "#fff",
-    border: "none",
-    borderRadius: "6px",
-    fontSize: "16px",
-    fontWeight: "600",
-    cursor: "pointer",
-    transition: "background-color 0.3s ease",
-    marginTop: "10px",
-  },
   divider: {
     color: "#bbb",
     margin: "10px 0",
@@ -166,5 +187,9 @@ const styles = {
   linkSeparator: {
     color: "#bbb",
     margin: "0 10px",
+  },
+  loading: {
+    color: "#bbb",
+    marginTop: "10px",
   },
 };
